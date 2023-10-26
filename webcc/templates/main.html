@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>서울 기온 데이터 분석</title>
+</head>
+<body>
+    <h1>서울 기온 데이터 분석 결과</h1>
+    <img src="{{ url_for('static', filename='temperature_plot.png') }}" alt="서울 일일 평균 기온 그래프">
+    <table>
+        <tr>
+            <th>날짜</th>
+            <th>평균기온(℃)</th>
+            <th>최저기온(℃)</th>
+            <th>최고기온(℃)</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td>{{ row['날짜'] }}</td>
+                <td>{{ row['평균기온(℃)'] }}</td>
+                <td>{{ row['최저기온(℃)'] }}</td>
+                <td>{{ row['최고기온(℃)'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
